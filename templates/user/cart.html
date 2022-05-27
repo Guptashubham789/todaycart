@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="row">
+    <h2 class="text-center">Cart <b style="color:red;">Items</b></h2>
+    <div class="col-sm-1"></div>
+    <div class="col-sm-10">
+        <table class="table table-stripted">
+            <tr>
+                <th>Product Id</th>
+                <th>Picture</th>
+                <th>Product Name</th>
+                <th>Product cat</th>
+                <th>Description</th>
+                <th>Total Prise</th>
+                <th>Discounted Pr.</th>
+                <th>Cart date</th>
+                <th>Remove Itam</th>
+                <th>Order</th>
+            </tr>
+            {% if cart %}
+            {% for x in cart %}
+            <tr>
+                <td>{{x.1}}</td>
+                <td>{{x.7}}></td>
+                <td>{{x.6}}</td>
+                <td>{{x.12}}</td>
+                <td>{{x.11}}</td>
+                <td><i class="btn btn-outline-success">{{x.9}}</i></td>
+                <td><i class="btn btn-outline-danger"><del>{{x.10}}</del></i></td>
+                <td>{{x.4}}</td>
+                <td><a href="/user/cart?pid={{x.0}}" class="btn btn-danger" style="padding:5px;">remove</a> </td>
+                <td><a href="#" class="btn btn-warning" style="padding:5px;">Order</a></td>
+            </tr>
+            {% endfor %}
+            {% endif %}
+        </table>
+    </div>
+    <div class="col-sm-1"></div>
+</div>
+{% endblock %}
